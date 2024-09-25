@@ -1,8 +1,12 @@
-let slides=document.querySelectorAll(".slide");
-let currentSlide=0;
-function changesSlide(){
-    slides[currentSlide].classList.remove("active");
-    currentSlide=(currentSlide+1)%slides.length;
-    slides[currentSlide].classList.add("active");
+const slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function showSlides() {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+    });
+    index = (index + 1) % slides.length;
 }
-setInterval(changesSlide, 3000);
+
+setInterval(showSlides, 5000);
+showSlides();
